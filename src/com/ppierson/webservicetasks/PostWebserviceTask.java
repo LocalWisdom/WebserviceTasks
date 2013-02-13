@@ -7,6 +7,8 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+import com.ppierson.webservicetasks.utils.WebserviceUtils;
+
 import android.os.AsyncTask;
 
 /* 
@@ -30,7 +32,7 @@ public class PostWebserviceTask extends AsyncTask<String, Void, String> {
 	    HttpURLConnection connection = null;  
 	    try {
 	      //Create connection
-	      url = new URL(targetURL);
+	      url = WebserviceUtils.convertToURLEscapingIllegalCharacters(targetURL);
 	      connection = (HttpURLConnection)url.openConnection();
 	      connection.setRequestMethod("POST");
 	      connection.setRequestProperty("Content-Type", 

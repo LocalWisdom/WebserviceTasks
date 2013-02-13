@@ -16,4 +16,14 @@ public class WebserviceUtils {
 	        return null;
 	    }
 	}
+	
+	public static URL convertToURLEscapingIllegalCharacters(String string){
+	    try {
+	        URI uri = convertToURIEscapingIllegalCharacters(string);
+	        return uri.toURL();
+	    } catch (Exception ex) {
+	        ex.printStackTrace();
+	        return null;
+	    }
+	}
 }
